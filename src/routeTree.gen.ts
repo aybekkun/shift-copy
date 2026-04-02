@@ -23,11 +23,15 @@ import { Route as LayoutReportsIndexImport } from './routes/_layout/reports/inde
 import { Route as LayoutFinancesIndexImport } from './routes/_layout/finances/index'
 import { Route as LayoutExpensesIndexImport } from './routes/_layout/expenses/index'
 import { Route as LayoutEmployeesIndexImport } from './routes/_layout/employees/index'
+import { Route as LayoutSettingsProductsNameImport } from './routes/_layout/settings/products-name'
+import { Route as LayoutSettingsProductsCollarImport } from './routes/_layout/settings/products-collar'
 import { Route as LayoutSettingsPrintTypesImport } from './routes/_layout/settings/print-types'
 import { Route as LayoutSettingsPaymentTypesImport } from './routes/_layout/settings/payment-types'
 import { Route as LayoutSettingsExpenseTypesImport } from './routes/_layout/settings/expense-types'
 import { Route as LayoutSalesSalesProductImport } from './routes/_layout/sales/sales-product'
 import { Route as LayoutSalesProductsImport } from './routes/_layout/sales/products'
+import { Route as LayoutSalesProductMonthlyReportImport } from './routes/_layout/sales/product-monthly-report'
+import { Route as LayoutSalesPrintMonthlyReportImport } from './routes/_layout/sales/print-monthly-report'
 import { Route as LayoutReportsWriteOffProductsImport } from './routes/_layout/reports/write-off-products'
 import { Route as LayoutReportsSuppliersImport } from './routes/_layout/reports/suppliers'
 import { Route as LayoutReportsSoldProductStatImport } from './routes/_layout/reports/sold-product-stat'
@@ -119,6 +123,21 @@ const LayoutEmployeesIndexRoute = LayoutEmployeesIndexImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutSettingsProductsNameRoute = LayoutSettingsProductsNameImport.update(
+  {
+    id: '/settings/products-name',
+    path: '/settings/products-name',
+    getParentRoute: () => LayoutRoute,
+  } as any,
+)
+
+const LayoutSettingsProductsCollarRoute =
+  LayoutSettingsProductsCollarImport.update({
+    id: '/settings/products-collar',
+    path: '/settings/products-collar',
+    getParentRoute: () => LayoutRoute,
+  } as any)
+
 const LayoutSettingsPrintTypesRoute = LayoutSettingsPrintTypesImport.update({
   id: '/settings/print-types',
   path: '/settings/print-types',
@@ -152,6 +171,20 @@ const LayoutSalesProductsRoute = LayoutSalesProductsImport.update({
   path: '/sales/products',
   getParentRoute: () => LayoutRoute,
 } as any)
+
+const LayoutSalesProductMonthlyReportRoute =
+  LayoutSalesProductMonthlyReportImport.update({
+    id: '/sales/product-monthly-report',
+    path: '/sales/product-monthly-report',
+    getParentRoute: () => LayoutRoute,
+  } as any)
+
+const LayoutSalesPrintMonthlyReportRoute =
+  LayoutSalesPrintMonthlyReportImport.update({
+    id: '/sales/print-monthly-report',
+    path: '/sales/print-monthly-report',
+    getParentRoute: () => LayoutRoute,
+  } as any)
 
 const LayoutReportsWriteOffProductsRoute =
   LayoutReportsWriteOffProductsImport.update({
@@ -408,6 +441,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutReportsWriteOffProductsImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/sales/print-monthly-report': {
+      id: '/_layout/sales/print-monthly-report'
+      path: '/sales/print-monthly-report'
+      fullPath: '/sales/print-monthly-report'
+      preLoaderRoute: typeof LayoutSalesPrintMonthlyReportImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/sales/product-monthly-report': {
+      id: '/_layout/sales/product-monthly-report'
+      path: '/sales/product-monthly-report'
+      fullPath: '/sales/product-monthly-report'
+      preLoaderRoute: typeof LayoutSalesProductMonthlyReportImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/sales/products': {
       id: '/_layout/sales/products'
       path: '/sales/products'
@@ -441,6 +488,20 @@ declare module '@tanstack/react-router' {
       path: '/settings/print-types'
       fullPath: '/settings/print-types'
       preLoaderRoute: typeof LayoutSettingsPrintTypesImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/settings/products-collar': {
+      id: '/_layout/settings/products-collar'
+      path: '/settings/products-collar'
+      fullPath: '/settings/products-collar'
+      preLoaderRoute: typeof LayoutSettingsProductsCollarImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/settings/products-name': {
+      id: '/_layout/settings/products-name'
+      path: '/settings/products-name'
+      fullPath: '/settings/products-name'
+      preLoaderRoute: typeof LayoutSettingsProductsNameImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/employees/': {
@@ -530,11 +591,15 @@ interface LayoutRouteChildren {
   LayoutReportsSoldProductStatRoute: typeof LayoutReportsSoldProductStatRoute
   LayoutReportsSuppliersRoute: typeof LayoutReportsSuppliersRoute
   LayoutReportsWriteOffProductsRoute: typeof LayoutReportsWriteOffProductsRoute
+  LayoutSalesPrintMonthlyReportRoute: typeof LayoutSalesPrintMonthlyReportRoute
+  LayoutSalesProductMonthlyReportRoute: typeof LayoutSalesProductMonthlyReportRoute
   LayoutSalesProductsRoute: typeof LayoutSalesProductsRoute
   LayoutSalesSalesProductRoute: typeof LayoutSalesSalesProductRoute
   LayoutSettingsExpenseTypesRoute: typeof LayoutSettingsExpenseTypesRoute
   LayoutSettingsPaymentTypesRoute: typeof LayoutSettingsPaymentTypesRoute
   LayoutSettingsPrintTypesRoute: typeof LayoutSettingsPrintTypesRoute
+  LayoutSettingsProductsCollarRoute: typeof LayoutSettingsProductsCollarRoute
+  LayoutSettingsProductsNameRoute: typeof LayoutSettingsProductsNameRoute
   LayoutEmployeesIndexRoute: typeof LayoutEmployeesIndexRoute
   LayoutExpensesIndexRoute: typeof LayoutExpensesIndexRoute
   LayoutFinancesIndexRoute: typeof LayoutFinancesIndexRoute
@@ -565,11 +630,15 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutReportsSoldProductStatRoute: LayoutReportsSoldProductStatRoute,
   LayoutReportsSuppliersRoute: LayoutReportsSuppliersRoute,
   LayoutReportsWriteOffProductsRoute: LayoutReportsWriteOffProductsRoute,
+  LayoutSalesPrintMonthlyReportRoute: LayoutSalesPrintMonthlyReportRoute,
+  LayoutSalesProductMonthlyReportRoute: LayoutSalesProductMonthlyReportRoute,
   LayoutSalesProductsRoute: LayoutSalesProductsRoute,
   LayoutSalesSalesProductRoute: LayoutSalesSalesProductRoute,
   LayoutSettingsExpenseTypesRoute: LayoutSettingsExpenseTypesRoute,
   LayoutSettingsPaymentTypesRoute: LayoutSettingsPaymentTypesRoute,
   LayoutSettingsPrintTypesRoute: LayoutSettingsPrintTypesRoute,
+  LayoutSettingsProductsCollarRoute: LayoutSettingsProductsCollarRoute,
+  LayoutSettingsProductsNameRoute: LayoutSettingsProductsNameRoute,
   LayoutEmployeesIndexRoute: LayoutEmployeesIndexRoute,
   LayoutExpensesIndexRoute: LayoutExpensesIndexRoute,
   LayoutFinancesIndexRoute: LayoutFinancesIndexRoute,
@@ -605,11 +674,15 @@ export interface FileRoutesByFullPath {
   '/reports/sold-product-stat': typeof LayoutReportsSoldProductStatRoute
   '/reports/suppliers': typeof LayoutReportsSuppliersRoute
   '/reports/write-off-products': typeof LayoutReportsWriteOffProductsRoute
+  '/sales/print-monthly-report': typeof LayoutSalesPrintMonthlyReportRoute
+  '/sales/product-monthly-report': typeof LayoutSalesProductMonthlyReportRoute
   '/sales/products': typeof LayoutSalesProductsRoute
   '/sales/sales-product': typeof LayoutSalesSalesProductRoute
   '/settings/expense-types': typeof LayoutSettingsExpenseTypesRoute
   '/settings/payment-types': typeof LayoutSettingsPaymentTypesRoute
   '/settings/print-types': typeof LayoutSettingsPrintTypesRoute
+  '/settings/products-collar': typeof LayoutSettingsProductsCollarRoute
+  '/settings/products-name': typeof LayoutSettingsProductsNameRoute
   '/employees': typeof LayoutEmployeesIndexRoute
   '/expenses': typeof LayoutExpensesIndexRoute
   '/finances': typeof LayoutFinancesIndexRoute
@@ -641,11 +714,15 @@ export interface FileRoutesByTo {
   '/reports/sold-product-stat': typeof LayoutReportsSoldProductStatRoute
   '/reports/suppliers': typeof LayoutReportsSuppliersRoute
   '/reports/write-off-products': typeof LayoutReportsWriteOffProductsRoute
+  '/sales/print-monthly-report': typeof LayoutSalesPrintMonthlyReportRoute
+  '/sales/product-monthly-report': typeof LayoutSalesProductMonthlyReportRoute
   '/sales/products': typeof LayoutSalesProductsRoute
   '/sales/sales-product': typeof LayoutSalesSalesProductRoute
   '/settings/expense-types': typeof LayoutSettingsExpenseTypesRoute
   '/settings/payment-types': typeof LayoutSettingsPaymentTypesRoute
   '/settings/print-types': typeof LayoutSettingsPrintTypesRoute
+  '/settings/products-collar': typeof LayoutSettingsProductsCollarRoute
+  '/settings/products-name': typeof LayoutSettingsProductsNameRoute
   '/employees': typeof LayoutEmployeesIndexRoute
   '/expenses': typeof LayoutExpensesIndexRoute
   '/finances': typeof LayoutFinancesIndexRoute
@@ -679,11 +756,15 @@ export interface FileRoutesById {
   '/_layout/reports/sold-product-stat': typeof LayoutReportsSoldProductStatRoute
   '/_layout/reports/suppliers': typeof LayoutReportsSuppliersRoute
   '/_layout/reports/write-off-products': typeof LayoutReportsWriteOffProductsRoute
+  '/_layout/sales/print-monthly-report': typeof LayoutSalesPrintMonthlyReportRoute
+  '/_layout/sales/product-monthly-report': typeof LayoutSalesProductMonthlyReportRoute
   '/_layout/sales/products': typeof LayoutSalesProductsRoute
   '/_layout/sales/sales-product': typeof LayoutSalesSalesProductRoute
   '/_layout/settings/expense-types': typeof LayoutSettingsExpenseTypesRoute
   '/_layout/settings/payment-types': typeof LayoutSettingsPaymentTypesRoute
   '/_layout/settings/print-types': typeof LayoutSettingsPrintTypesRoute
+  '/_layout/settings/products-collar': typeof LayoutSettingsProductsCollarRoute
+  '/_layout/settings/products-name': typeof LayoutSettingsProductsNameRoute
   '/_layout/employees/': typeof LayoutEmployeesIndexRoute
   '/_layout/expenses/': typeof LayoutExpensesIndexRoute
   '/_layout/finances/': typeof LayoutFinancesIndexRoute
@@ -718,11 +799,15 @@ export interface FileRouteTypes {
     | '/reports/sold-product-stat'
     | '/reports/suppliers'
     | '/reports/write-off-products'
+    | '/sales/print-monthly-report'
+    | '/sales/product-monthly-report'
     | '/sales/products'
     | '/sales/sales-product'
     | '/settings/expense-types'
     | '/settings/payment-types'
     | '/settings/print-types'
+    | '/settings/products-collar'
+    | '/settings/products-name'
     | '/employees'
     | '/expenses'
     | '/finances'
@@ -753,11 +838,15 @@ export interface FileRouteTypes {
     | '/reports/sold-product-stat'
     | '/reports/suppliers'
     | '/reports/write-off-products'
+    | '/sales/print-monthly-report'
+    | '/sales/product-monthly-report'
     | '/sales/products'
     | '/sales/sales-product'
     | '/settings/expense-types'
     | '/settings/payment-types'
     | '/settings/print-types'
+    | '/settings/products-collar'
+    | '/settings/products-name'
     | '/employees'
     | '/expenses'
     | '/finances'
@@ -789,11 +878,15 @@ export interface FileRouteTypes {
     | '/_layout/reports/sold-product-stat'
     | '/_layout/reports/suppliers'
     | '/_layout/reports/write-off-products'
+    | '/_layout/sales/print-monthly-report'
+    | '/_layout/sales/product-monthly-report'
     | '/_layout/sales/products'
     | '/_layout/sales/sales-product'
     | '/_layout/settings/expense-types'
     | '/_layout/settings/payment-types'
     | '/_layout/settings/print-types'
+    | '/_layout/settings/products-collar'
+    | '/_layout/settings/products-name'
     | '/_layout/employees/'
     | '/_layout/expenses/'
     | '/_layout/finances/'
@@ -851,11 +944,15 @@ export const routeTree = rootRoute
         "/_layout/reports/sold-product-stat",
         "/_layout/reports/suppliers",
         "/_layout/reports/write-off-products",
+        "/_layout/sales/print-monthly-report",
+        "/_layout/sales/product-monthly-report",
         "/_layout/sales/products",
         "/_layout/sales/sales-product",
         "/_layout/settings/expense-types",
         "/_layout/settings/payment-types",
         "/_layout/settings/print-types",
+        "/_layout/settings/products-collar",
+        "/_layout/settings/products-name",
         "/_layout/employees/",
         "/_layout/expenses/",
         "/_layout/finances/",
@@ -942,6 +1039,14 @@ export const routeTree = rootRoute
       "filePath": "_layout/reports/write-off-products.tsx",
       "parent": "/_layout"
     },
+    "/_layout/sales/print-monthly-report": {
+      "filePath": "_layout/sales/print-monthly-report.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/sales/product-monthly-report": {
+      "filePath": "_layout/sales/product-monthly-report.tsx",
+      "parent": "/_layout"
+    },
     "/_layout/sales/products": {
       "filePath": "_layout/sales/products.tsx",
       "parent": "/_layout"
@@ -960,6 +1065,14 @@ export const routeTree = rootRoute
     },
     "/_layout/settings/print-types": {
       "filePath": "_layout/settings/print-types.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/settings/products-collar": {
+      "filePath": "_layout/settings/products-collar.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/settings/products-name": {
+      "filePath": "_layout/settings/products-name.tsx",
       "parent": "/_layout"
     },
     "/_layout/employees/": {

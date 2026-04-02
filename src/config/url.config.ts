@@ -1,3 +1,3 @@
-const BASE_URL = "https://uyut-test-test.karsoft.uz/api/v1"
+const BASE_URL = "https://uyut-test-test.injiniring-kompaniya.uz"
 
 export { BASE_URL }
